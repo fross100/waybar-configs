@@ -74,15 +74,6 @@ This will:
 - Backup your current config (e.g. `config.bak`, `style.css.bak`)
 - Reload Waybar automatically
 
-### Method 2: Manual Reset
-
-If you're not on Omarchy, manually restore:
-
-```bash
-rm -rf ~/.config/waybar
-# Waybar will regenerate default config on next launch
-```
-
 ---
 
 Enjoy your new waybar! Feel free to tweak and break things - that's the fun part! 🛠️
