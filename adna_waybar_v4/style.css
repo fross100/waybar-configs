@@ -1,0 +1,320 @@
+@import "../omarchy/current/theme/waybar.css";
+
+/* Global Styles */
+* {
+  font-family: "JetBrainsMono Nerd Font", "omavy";
+}
+
+/* Window/Bar Base Styles */
+window#waybar {
+  background: @transparent;
+}
+
+/* Right Module Container - Rounded Top Side */
+
+#all {
+  background-color: alpha(@background, 0.1);
+}
+
+#center {
+  background-color: alpha(@background, 0.5);
+}
+
+#middle {
+  background-color: alpha(@background, 0.3);
+}
+
+/* Workspaces Styling */
+#workspaces {
+  margin: 5px 0;
+  margin-right: 4px;
+  padding: 0 3px;
+}
+
+#workspaces button {
+  all: initial;
+  padding: 0px;
+  padding-right: 2px;
+  min-height: 16px;
+  font-size: 13px;
+  transition: all 0.1s ease-in-out;
+  color: @foreground;
+}
+
+#workspaces button.active {
+  color: @accent;
+  padding-left: 2px;
+}
+
+#workspaces button.active:hover {
+  font-size: 15px;
+}
+
+#workspaces button:hover {
+  color: @accent;
+  font-size: 15px;
+}
+
+#workspaces button.empty {
+  color: @foreground;
+  opacity: 0.6;
+}
+
+#workspaces button.empty:hover {
+  opacity: 0.9;
+}
+
+/* Clock and Omarchy Modules - Vertical Centering */
+#clock {
+  color: @foreground;
+  background-color: @background;
+  font-size: 15px;
+  font-weight: bolder;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#custom-power,
+#custom-omarchy {
+  font-size: 12px;
+  color: @foreground;
+}
+
+#custom-power:hover,
+#custom-omarchy:hover {
+  color: @accent;
+}
+
+#custom-power {
+  padding-right: 2px;
+}
+
+/* System Modules - Tight Spacing */
+#custom-cpu,
+#custom-gpu,
+#memory,
+#custom-weather,
+#bluetooth,
+#network,
+#custom-network,
+#pulseaudio,
+#battery {
+  padding: 2px 0;
+  font-size: 13px;
+  color: @foreground;
+}
+
+/* Individual System Module Adjustments */
+#network,
+#custom-network,
+#custom-weather {
+  margin-right: 3px;
+}
+
+#bluetooth,
+#pulseaudio {
+  padding-right: 2px;
+}
+
+#network:hover,
+#custom-network:hover,
+#custom-weather:hover {
+  color: @accent;
+}
+
+#bluetooth:hover,
+#pulseaudio:hover {
+  color: @accent;
+}
+
+/* PulseAudio Slider - Vertical Volume Control */
+#pulseaudio-slider {
+  padding: 5px 0;
+  font-size: 9px;
+  min-height: 80px;
+}
+
+#pulseaudio-slider trough {
+  min-width: 10px;
+  border-radius: 5px;
+}
+
+#pulseaudio-slider highlight {
+  min-width: 10px;
+  background-color: @foreground;
+  border-radius: 5px;
+}
+
+#pulseaudio-slider slider {
+  background-image: none;
+  background-color: transparent;
+  border-radius: 40%;
+  box-shadow: none;
+}
+
+/* Expand Icon and Tray - Tight Spacing */
+
+#custom-expand-icon {
+  font-size: 13px;
+  color: @foreground;
+  padding: 2px 0;
+  padding-right: 3px;
+}
+
+#custom-expand-icon:hover {
+  color: @accent;
+}
+
+/* Media Controls and Indicators */
+
+#mpris {
+  font-size: 13px;
+  color: @foreground;
+  padding: 2px 0;
+  padding-right: 4px;
+}
+
+#custom-reminder:hover,
+#mpris:hover {
+  color: @accent;
+}
+
+#custom-reminder {
+  color: @foreground;
+  font-size: 14px;
+  padding-right: 3px;
+}
+#custom-reminder.active {
+  color: @accent;
+  font-weight: bold;
+}
+/* Tray Styling */
+#tray {
+  background: @transparent;
+  padding: 7px 0;
+}
+
+#tray image,
+#tray > widget {
+  color: @foreground;
+}
+
+/* Tooltip Styling */
+tooltip {
+  background-color: alpha(@background, 0.9);
+  padding: 2px;
+}
+
+/* Hidden State */
+.hidden {
+  opacity: 0;
+}
+
+/* Active State Indicators */
+#custom-update,
+#custom-screenrecording-indicator,
+#custom-idle-indicator,
+#custom-notification-silencing-indicator,
+#custom-voxtype {
+  color: @foreground;
+  padding: 2px 0;
+  padding-right: 2px;
+}
+
+/* Keep the .active class for specific coloring if desired */
+#custom-update.active,
+#custom-screenrecording-indicator.active,
+#custom-idle-indicator.active,
+#custom-notification-silencing-indicator.active,
+#custom-voxtype.active {
+  color: @foreground;
+}
+
+#custom-update:hover,
+#custom-screenrecording-indicator:hover,
+#custom-idle-indicator:hover,
+#custom-notification-silencing-indicator:hover,
+#custom-voxtype:hover {
+  color: @accent;
+}
+
+/* CPU/GPU Temperature States */
+#custom-cpu.hot,
+#custom-gpu.hot,
+#custom-cpu.critical,
+#custom-gpu.critical {
+  color: @accent;
+}
+
+#memory,
+#custom-cpu.normal,
+#custom-gpu.normal {
+  padding: 1px 0;
+  padding-right: 3px;
+  font-size: 13px;
+  font-weight: bolder;
+}
+
+#memory:hover,
+#custom-cpu:hover,
+#custom-gpu:hover {
+  color: @accent;
+}
+
+/* Temperature Color Coding - Green/Yellow/Red */
+#custom-cpu.temp-low,
+#custom-gpu.temp-low {
+  color: @foreground;
+}
+
+#custom-cpu.temp-med,
+#custom-gpu.temp-med {
+  color: #ea580c;
+}
+
+#custom-cpu.temp-high,
+#custom-gpu.temp-high {
+  color: @accent;
+}
+
+/* Battery Warning States */
+#battery.warning {
+  color: #ea580c;
+}
+
+#battery.critical {
+  color: @accent;
+}
+
+/* Side Modules - Glyph Icons */
+#custom-l-side,
+#custom-r-side {
+  color: @background;
+  font-family: "omavy";
+  font-size: 24px;
+  background: transparent;
+}
+
+#custom-l-side-2,
+#custom-r-side-2 {
+  color: alpha(@background, 0.1);
+  font-family: "omavy";
+  font-size: 24px;
+  background: transparent;
+}
+
+#custom-l-side-3,
+#custom-r-side-3 {
+  color: alpha(@background, 0.5);
+  font-family: "omavy";
+  font-size: 24px;
+  background: transparent;
+}
+
+#custom-l-side-4,
+#custom-r-side-4 {
+  color: alpha(@background, 0.3);
+  font-family: "omavy";
+  font-size: 24px;
+  background: transparent;
+}

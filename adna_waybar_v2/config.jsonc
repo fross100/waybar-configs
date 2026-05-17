@@ -1,0 +1,336 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "left",
+  "spacing": 0,
+  "width": 24,
+  "modules-left": ["group/up", "custom/l-side"],
+  "modules-center": ["custom/r-side", "clock", "custom/clock", "custom/l-side"],
+  "modules-right": ["custom/r-side", "group/stats"],
+
+  "group/active": {
+    "orientation": "vertical",
+    "modules": ["custom/omarchy", "hyprland/workspaces"],
+  },
+
+  "group/up": {
+    "orientation": "vertical",
+    "modules": [
+      "group/active",
+      "hyprland/window#title",
+      "hyprland/window#class",
+    ],
+  },
+  "group/stats": {
+    "orientation": "vertical",
+    "modules": ["group/current-stats", "group/hardware-stats"],
+  },
+  "group/current-stats": {
+    "orientation": "vertical",
+    "modules": [
+      "mpris",
+      "custom/update",
+      "custom/screenrecording-indicator",
+      "custom/idle-indicator",
+    ],
+  },
+
+  "group/hardware-stats": {
+    "orientation": "vertical",
+    "modules": [
+      "group/tray-expander",
+      "memory",
+      "custom/cpu",
+      "custom/gpu",
+      "custom/weather",
+      "bluetooth",
+      "custom/network",
+      "group/volume-drawer",
+      "battery",
+    ],
+  },
+
+  "group/volume-drawer": {
+    "orientation": "vertical",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "volume-slider",
+      "transition-left-to-right": false,
+    },
+    "modules": ["pulseaudio", "pulseaudio/slider"],
+  },
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "justify": "center",
+    "align": 0.5,
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "empty": "",
+      "active": "󰫢",
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+    },
+  },
+
+  "hyprland/window#class": {
+    "format": "{class}",
+    "separate-outputs": true,
+    "rotate": 90,
+    "justify": "left",
+    "align": 0.5,
+    "rewrite": {
+      // --- Browsers & Web ---
+      "(.*) — Zen Browser": "Zen",
+      "(.*) — Chromium": "Chromium",
+      "com.cloudflare.WarpTaskbar": "Cloudflare WARP",
+
+      // --- Development & Design ---
+      "dev.zed.Zed": "ZED",
+      "kitty": "Kitty",
+      "Alacritty": "Alacritty",
+      "nvim": "Neovim",
+      "gvim": "VIM",
+      "com.github.FontManager.FontManager": "Font Manager",
+      "com.github.FontManager.FontViewer": "Font Viewer",
+      "displaycal": "DisplayCAL",
+      "cmake-gui": "CMake",
+      "Wine Desktop": "Wine",
+
+      // --- System & Utilities ---
+      "org.gnome.Nautilus": "Files",
+      "org.gnome.Calculator": "Calculator",
+      "org.gnome.DiskUtility": "Disks",
+      "org.gnome.Software": "Software",
+      "org.gnome.baobab": "Disk Usage",
+      "org.gnome.Evince": "Document Viewer",
+      "org.coolercontrol.CoolerControl": "CoolerControl",
+      "nvidia-settings": "NVIDIA",
+      "gparted": "GParted",
+      "btop": "Btop",
+      "nvtop": "Nvtop",
+      "blueman-manager": "Bluetooth",
+      "pavucontrol": "Volume",
+      "solaar": "Solaar",
+      "btrfs-assistant": "Btrfs Assistant",
+
+      // --- Communication & Media ---
+      "org.telegram.desktop": "Telegram",
+      "diskord": "Discord",
+      "spotify": "Spotify",
+      "mpv": "MPV",
+      "imv": "Image Viewer",
+      "localsend": "LocalSend",
+      "steam": "Steam",
+
+      // --- LibreOffice ---
+      "libreoffice-writer": "Writer",
+      "libreoffice-calc": "Calc",
+      "libreoffice-impress": "Impress",
+
+      // --- Cleanup Rules ---
+      "^org\\.(gnome|kde)\\.(.*)": "$2",
+      "^com\\.(.*)\\.(.*)": "$2",
+      "^(.*)\\.[eE][xX][eE](.*)$": "$1",
+      "Z:\\\\(.*)\\\\(.*)": "$2",
+    },
+  },
+
+  "hyprland/window#title": {
+    "format": "{}",
+    "separate-outputs": true,
+    "max-length": 20,
+    "rotate": 90,
+    "justify": "left",
+    "align": 0.5,
+    "hideWhenEmpty": true,
+  },
+
+  "custom/omarchy": {
+    "format": "<span font_family='omavy'>\u0044</span>",
+    "on-click": "omarchy-menu",
+    "on-click-right": "xdg-terminal-exec",
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space",
+    "justify": "center",
+    "align": 0.5,
+  },
+
+  "clock": {
+    "format": "{:%H\n%M}",
+    "tooltip": true,
+    "tooltip-format": "{:%A, %d %B %Y}",
+  },
+
+  "custom/update": {
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 21600,
+  },
+
+"custom/network": {
+    "exec": "~/.config/waybar/scripts/network-speed.sh",
+    "interval": 2,
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "omarchy-launch-wifi",
+  },
+
+  "battery": {
+    "format": "{icon}",
+    "format-discharging": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "",
+    "format-icons": {
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    },
+    "format-full": "󰂅",
+    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+    "interval": 5,
+    "on-click": "omarchy-menu power",
+    "states": {
+      "warning": 20,
+      "critical": 10,
+    },
+  },
+
+  "custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 1800,
+    "exec": "wttrbar --nerd --location 'Tulungagung,ID' | jq -c '.text |= split(\" \")[0]'",
+    "return-type": "json",
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-no-controller": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "omarchy-launch-bluetooth",
+  },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "on-click": "omarchy-launch-audio",
+    "on-click-right": "pamixer -t",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "󰓄",
+    "format-icons": {
+      "headphone": "󰋋",
+      "headset": "󰋎",
+      "default": "󰓃",
+    },
+  },
+
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "vertical",
+    "on-click": "true",
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%",
+  },
+
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item",
+    },
+    "modules": ["custom/expand-icon", "tray"],
+  },
+
+  "custom/expand-icon": {
+    "format": "󰁣",
+    "tooltip": false,
+    "rotate": 0,
+  },
+
+  "custom/screenrecording-indicator": {
+    "on-click": "omarchy-cmd-screenrecord",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+    "signal": 8,
+    "return-type": "json",
+  },
+
+  "custom/idle-indicator": {
+    "on-click": "omarchy-toggle-idle",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/idle.sh",
+    "signal": 9,
+    "return-type": "json",
+  },
+
+  "tray": {
+    "icon-size": 10,
+  },
+
+  "custom/cpu": {
+    "exec": "~/.config/waybar/scripts/cpu.sh",
+    "interval": 2,
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "bash -c 'if [ -f /tmp/waybar_cpu_state ]; then if [ \"$(cat /tmp/waybar_cpu_state)\" = \"usage\" ]; then echo \"temp\" > /tmp/waybar_cpu_state; else echo \"usage\" > /tmp/waybar_cpu_state; fi; else echo \"temp\" > /tmp/waybar_cpu_state; fi; pkill -SIGRTMIN+1 waybar'",
+    "on-click-right": "omarchy-launch-or-focus-tui btop",
+    "signal": 1,
+  },
+
+  "custom/gpu": {
+    "exec": "~/.config/waybar/scripts/gpu.sh",
+    "interval": 2,
+    "format": "{}",
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "bash -c 'if [ -f /tmp/waybar_gpu_state ]; then if [ \"$(cat /tmp/waybar_gpu_state)\" = \"usage\" ]; then echo \"temp\" > /tmp/waybar_gpu_state; else echo \"usage\" > /tmp/waybar_gpu_state; fi; else echo \"temp\" > /tmp/waybar_gpu_state; fi; pkill -SIGRTMIN+2 waybar'",
+    "on-click-right": "hyprctl dispatch exec \"[float] $TERMINAL -e nvtop\"",
+    "signal": 2,
+  },
+
+  "memory": {
+    "interval": 2,
+    "format": "{icon}",
+    "format-icons": ["󰝦", "󰪞", "󰪟", "󰪣", "󰪤", "󰪥", "󰪢"],
+    "on-click": "omarchy-launch-or-focus-tui btop",
+  },
+
+  "mpris": {
+    "format": "{status}",
+    "format-paused": "⏸ {artist} - {title}",
+    "format-playing": "▶ {artist} - {title}",
+    "format-stopped": "",
+    "players": ["playerctl"],
+    "tooltip-format": "{player}: {title} - {artist}",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "rotate": 90,
+    "justify": "center",
+    "align": 0.5,
+    "max-length": 20,
+  },
+
+  "custom/r-side": {
+    "format": "<span font_family='omavy'>\u0042</span>",
+    "tooltip": false,
+  },
+
+  "custom/l-side": {
+    "format": "<span font_family='omavy'>\u0041</span>",
+    "tooltip": false,
+  },
+}

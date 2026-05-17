@@ -1,0 +1,26 @@
+{
+  "include": [
+    "$HOME/.config/waybar/modules/modules.jsonc",
+    "$HOME/.config/waybar/modules/custom-modules.jsonc",
+  ],
+  "reload_style_on_change": true,
+  "margin-right": 2,
+  "layer": "top",
+  "position": "left",
+  "fixed-center": true,
+
+  "modules-left": [
+    "custom/power",
+    "hyprland/workspaces",
+    "custom/privacydots",
+    "custom/screenrecording-indicator",
+  ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "group/tray-expander",
+    "group/system-capsule",
+    "custom/omarchy",
+  ],
+
+  "__comment": "Module configurations are in modules/modules.jsonc",
+}
