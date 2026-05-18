@@ -211,14 +211,13 @@ tooltip {
 }
 
 /* CPU/GPU Temperature States */
-#custom-cpu.hot,
-#custom-gpu.hot {
-  color: alpha(@accent, 0.5);
-}
-
-#custom-cpu.critical,
-#custom-gpu.critical {
-  color: @accent;
+#memory,
+#custom-cpu,
+#custom-gpu {
+  padding: 1px 0;
+  padding-right: 3px;
+  font-size: 13px;
+  font-weight: bolder;
 }
 
 #custom-cpu.normal,
@@ -226,20 +225,17 @@ tooltip {
   color: @foreground;
 }
 
-/* Temperature Color Coding - Green/Yellow/Red */
-#custom-cpu.temp-low,
-#custom-gpu.temp-low {
-  color: #0d9488;
+#custom-cpu.hot,
+#custom-gpu.hot,
+#custom-cpu.critical,
+#custom-gpu.critical {
+  color: @accent;
 }
 
-#custom-cpu.temp-med,
-#custom-gpu.temp-med {
-  color: #ea580c;
-}
-
-#custom-cpu.temp-high,
-#custom-gpu.temp-high {
-  color: #dc2626;
+#memory:hover,
+#custom-cpu:hover,
+#custom-gpu:hover {
+  color: @accent;
 }
 
 /* Battery Warning States */

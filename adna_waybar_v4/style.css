@@ -239,6 +239,19 @@ tooltip {
 }
 
 /* CPU/GPU Temperature States */
+#memory,
+#custom-cpu,
+#custom-gpu {
+  padding: 1px 0;
+  padding-right: 3px;
+  font-size: 13px;
+  font-weight: bolder;
+}
+
+#custom-cpu.normal,
+#custom-gpu.normal {
+  color: @foreground;
+}
 #custom-cpu.hot,
 #custom-gpu.hot,
 #custom-cpu.critical,
@@ -246,34 +259,9 @@ tooltip {
   color: @accent;
 }
 
-#memory,
-#custom-cpu.normal,
-#custom-gpu.normal {
-  padding: 1px 0;
-  padding-right: 3px;
-  font-size: 13px;
-  font-weight: bolder;
-}
-
 #memory:hover,
 #custom-cpu:hover,
 #custom-gpu:hover {
-  color: @accent;
-}
-
-/* Temperature Color Coding - Green/Yellow/Red */
-#custom-cpu.temp-low,
-#custom-gpu.temp-low {
-  color: @foreground;
-}
-
-#custom-cpu.temp-med,
-#custom-gpu.temp-med {
-  color: #ea580c;
-}
-
-#custom-cpu.temp-high,
-#custom-gpu.temp-high {
   color: @accent;
 }
 
