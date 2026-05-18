@@ -12,7 +12,7 @@ Big thanks to these awesome folks for the inspiration and base configs:
 
 | v1 | v2 | v3 | v4 |
 |---|---|---|---|
-| ![Preview](preview_adna_waybar_v1.png) | ![Preview](preview_adna_waybar_v2.png) | ![Preview](preview_adna_waybar_v3.png) | ![Preview](preview_adna_waybar_v4.png) |
+| ![Preview](adna_waybar_v1/preview_adna_waybar_v1.png) | ![Preview](adna_waybar_v2/preview_adna_waybar_v2.png) | ![Preview](adna_waybar_v3/preview_adna_waybar_v3.png) | ![Preview](adna_waybar_v4/preview_adna_waybar_v4.png) |
 
 ---
 
