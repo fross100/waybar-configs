@@ -13,15 +13,15 @@ window#waybar {
 /* Right Module Container - Rounded Top Side */
 
 #all {
-  background-color: alpha(@background, 0.1);
+  background-color: alpha(@background, 0.3);
 }
 
 #center {
-  background-color: alpha(@background, 0.5);
+  background-color: alpha(@background, 0.3);
 }
 
 #middle {
-  background-color: alpha(@background, 0.3);
+  background-color: alpha(@background, 0.5);
 }
 
 /* Workspaces Styling */
@@ -285,7 +285,7 @@ tooltip {
 
 #custom-l-side-2,
 #custom-r-side-2 {
-  color: alpha(@background, 0.1);
+  color: alpha(@background, 0.3);
   font-family: "omavy";
   font-size: 24px;
   background: transparent;
@@ -293,7 +293,7 @@ tooltip {
 
 #custom-l-side-3,
 #custom-r-side-3 {
-  color: alpha(@background, 0.5);
+  color: alpha(@background, 0.3);
   font-family: "omavy";
   font-size: 24px;
   background: transparent;
@@ -301,7 +301,7 @@ tooltip {
 
 #custom-l-side-4,
 #custom-r-side-4 {
-  color: alpha(@background, 0.3);
+  color: alpha(@background, 0.5);
   font-family: "omavy";
   font-size: 24px;
   background: transparent;
