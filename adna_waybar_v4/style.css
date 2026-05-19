@@ -280,7 +280,6 @@ tooltip {
   color: @background;
   font-family: "omavy";
   font-size: 24px;
-  background: transparent;
 }
 
 #custom-l-side-2,
@@ -288,15 +287,13 @@ tooltip {
   color: alpha(@background, 0.2);
   font-family: "omavy";
   font-size: 24px;
-  background: transparent;
 }
 
 #custom-l-side-3,
 #custom-r-side-3 {
-  color: alpha(@background, 0.2);
+  color: alpha(@background, 0.6);
   font-family: "omavy";
   font-size: 24px;
-  background: transparent;
 }
 
 #custom-l-side-4,
@@ -304,5 +301,4 @@ tooltip {
   color: alpha(@background, 0.4);
   font-family: "omavy";
   font-size: 24px;
-  background: transparent;
 }
