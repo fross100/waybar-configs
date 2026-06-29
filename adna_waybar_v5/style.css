@@ -17,24 +17,23 @@ window#waybar {
 }
 
 #center {
-  background-color: alpha(@background, 0.7);
+  background-color: alpha(@background, 0.6);
 }
 
 #middle {
-  background-color: alpha(@background, 0.6);
+  background-color: alpha(@background, 0.4);
 }
 
 /* Workspaces Styling */
 #workspaces {
-  margin: 5px 0;
-  margin-right: 4px;
-  padding: 0 3px;
+  margin: 0 5px;
+  padding: 3px 0;
 }
 
 #workspaces button {
   all: initial;
   padding: 0px;
-  padding-right: 2px;
+  padding-right: 5px;
   min-height: 16px;
   font-size: 13px;
   transition: all 0.1s ease-in-out;
@@ -47,12 +46,12 @@ window#waybar {
 }
 
 #workspaces button.active:hover {
-  font-size: 15px;
+  opacity: 0.6;
 }
 
 #workspaces button:hover {
   color: @accent;
-  font-size: 15px;
+  opacity: 0.6;
 }
 
 #workspaces button.empty {
@@ -64,14 +63,13 @@ window#waybar {
   opacity: 0.9;
 }
 
-/* Clock and Omarchy Modules - Vertical Centering */
+/* Clock and Omarchy Modules - Horizontal Centering */
 #clock {
   color: @foreground;
-  background-color: @accent;
+  background-color: @background;
   font-size: 15px;
   font-weight: bolder;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding: 0 5px;
 }
 
 #custom-power,
@@ -86,10 +84,15 @@ window#waybar {
 }
 
 #custom-power {
-  padding-right: 2px;
+  padding: 0 5px;
+  margin-right: 2px;
 }
 
-/* System Modules - Tight Spacing */
+#custom-omarchy {
+  padding: 0 5px;
+}
+
+/* System Modules - Horizontal Spacing */
 #custom-cpu,
 #custom-gpu,
 #memory,
@@ -99,7 +102,7 @@ window#waybar {
 #custom-network,
 #pulseaudio,
 #battery {
-  padding: 2px 0;
+  padding: 0 4px;
   font-size: 13px;
   color: @foreground;
 }
@@ -108,12 +111,12 @@ window#waybar {
 #network,
 #custom-network,
 #custom-weather {
-  margin-right: 3px;
+  margin-right: 5px;
 }
 
 #bluetooth,
 #pulseaudio {
-  padding-right: 2px;
+  padding: 0 5px;
 }
 
 #network:hover,
@@ -127,20 +130,20 @@ window#waybar {
   color: @accent;
 }
 
-/* PulseAudio Slider - Vertical Volume Control */
+/* PulseAudio Slider - Horizontal Volume Control */
 #pulseaudio-slider {
-  padding: 5px 0;
+  padding: 0 5px;
   font-size: 9px;
-  min-height: 80px;
+  min-width: 80px;
 }
 
 #pulseaudio-slider trough {
-  min-width: 10px;
+  min-height: 10px;
   border-radius: 5px;
 }
 
 #pulseaudio-slider highlight {
-  min-width: 10px;
+  min-height: 10px;
   background-color: @foreground;
   border-radius: 5px;
 }
@@ -152,13 +155,12 @@ window#waybar {
   box-shadow: none;
 }
 
-/* Expand Icon and Tray - Tight Spacing */
+/* Expand Icon and Tray */
 
 #custom-expand-icon {
   font-size: 13px;
   color: @foreground;
-  padding: 2px 0;
-  padding-right: 3px;
+  padding: 0 5px;
 }
 
 #custom-expand-icon:hover {
@@ -170,8 +172,7 @@ window#waybar {
 #mpris {
   font-size: 13px;
   color: @foreground;
-  padding: 2px 0;
-  padding-right: 4px;
+  padding: 0 5px;
 }
 
 #custom-reminder:hover,
@@ -182,7 +183,7 @@ window#waybar {
 #custom-reminder {
   color: @foreground;
   font-size: 14px;
-  padding-right: 3px;
+  padding: 0 5px;
 }
 #custom-reminder.active {
   color: @accent;
@@ -191,7 +192,7 @@ window#waybar {
 /* Tray Styling */
 #tray {
   background: @transparent;
-  padding: 7px 0;
+  padding: 0 5px;
 }
 
 #tray image,
@@ -202,7 +203,13 @@ window#waybar {
 /* Tooltip Styling */
 tooltip {
   background-color: alpha(@background, 0.9);
-  padding: 2px;
+  color: @foreground;
+  text-shadow: none;
+  border: none;
+}
+tooltip * {
+  color: @foreground;
+  text-shadow: none;
 }
 
 /* Hidden State */
@@ -217,8 +224,7 @@ tooltip {
 #custom-notification-silencing-indicator,
 #custom-voxtype {
   color: @foreground;
-  padding: 2px 0;
-  padding-right: 2px;
+  padding: 0 5px;
 }
 
 /* Keep the .active class for specific coloring if desired */
@@ -242,8 +248,7 @@ tooltip {
 #memory,
 #custom-cpu,
 #custom-gpu {
-  padding: 1px 0;
-  padding-right: 3px;
+  padding: 0 5px;
   font-size: 13px;
   font-weight: bolder;
 }
@@ -277,7 +282,7 @@ tooltip {
 /* Side Modules - Glyph Icons */
 #custom-l-side,
 #custom-r-side {
-  color: @accent;
+  color: @background;
   font-family: "omavy";
   font-size: 24px;
 }
@@ -291,14 +296,14 @@ tooltip {
 
 #custom-l-side-3,
 #custom-r-side-3 {
-  color: alpha(@background, 0.7);
+  color: alpha(@background, 0.6);
   font-family: "omavy";
   font-size: 24px;
 }
 
 #custom-l-side-4,
 #custom-r-side-4 {
-  color: alpha(@background, 0.6);
+  color: alpha(@background, 0.4);
   font-family: "omavy";
   font-size: 24px;
 }
